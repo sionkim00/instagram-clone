@@ -11,6 +11,7 @@ export default function HomeScreen() {
   useEffect(() => {
     getUser();
   }, []);
+
   const getUser = async () => {
     const user = await axios.get("https://randomuser.me/api/");
     const newUser = {
