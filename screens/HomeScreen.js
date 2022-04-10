@@ -1,8 +1,10 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../redux/slices/userSlice";
+import StoryComponent from "../components/StoryComponent";
+import PostListHome from "../components/PostListHome";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
@@ -22,10 +24,9 @@ export default function HomeScreen() {
     dispatch(setUser(newUser));
   };
   return (
-    <View>
-      <Text>HomeScreen</Text>
-      <Text>{user.username}</Text>
-      <Text>{user.profilePicture}</Text>
-    </View>
+    <ScrollView style={{ backgroundColor: "#fff", flex: 1 }}>
+      <StoryComponent />
+      <PostListHome />
+    </ScrollView>
   );
 }
